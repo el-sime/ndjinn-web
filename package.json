@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A game of sorts",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "el_sime",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
