@@ -3,19 +3,25 @@ class ndjinn {
     isRunning: boolean = false;
     currentFrameId: number = 0;
     lastFrameTime: number = 0;
-    Start():void {
+
+    
+
+    Start(): void {
         this.startTime = window.performance.now();
         this.lastFrameTime = 0;
+        this.isRunning = true;
         this.Run(null);
     }
-    Stop():void {
+
+    Stop(): void {
         this.isRunning = false;
     }
     
     Run(frameId: Number | null): void {
         if (this.isRunning) {
             const frameTime = window.performance.now() - this.startTime;
-            const deltaTime = (frameTime - this.lastFrameTime) 
+            const deltaTime = (frameTime - this.lastFrameTime);
+            this.Update(deltaTime);
         }
         this.Render();
         this.currentFrameId = window.requestAnimationFrame((frameId: number) => this.Run(frameId));
@@ -25,11 +31,11 @@ class ndjinn {
         console.log(deltaTime);
     }
 
-    Render():void {
+    Render(): void {
         return;
     }
 
-    Destroy() :void {
+    Destroy(): void {
         window.cancelAnimationFrame(this.currentFrameId);
     }
 }
